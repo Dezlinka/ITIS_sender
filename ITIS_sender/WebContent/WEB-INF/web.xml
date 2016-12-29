@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Recruitment office</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <description></description>
+    <display-name>UserController</display-name>
+    <servlet-name>UserController</servlet-name>
+    <servlet-class>controller.UserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserController</servlet-name>
+    <url-pattern>/UserController</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ShowAllUsersr</display-name>
+    <servlet-name>ShowAllUsers</servlet-name>
+    <servlet-class>controller.ShowAllUsers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAllUsers</servlet-name>
+    <url-pattern>/private/ShowAllUsers</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>controller.LoginServlet</servlet-class>
+    </servlet>    
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping> 
+    
+    <servlet>
+        <servlet-name>Welcome</servlet-name>
+        <servlet-class>controller.Welcome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Welcome</servlet-name>
+        <url-pattern>/Welcome</url-pattern>
+    </servlet-mapping>  
+    
+    <servlet>
+        <servlet-name>OfficerController</servlet-name>
+        <servlet-class>controller.InstituteController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OfficerController</servlet-name>
+        <url-pattern>/private/OfficerController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>senderServlet</servlet-name>
+        <servlet-class>sms.senderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>senderServlet</servlet-name>
+        <url-pattern>/senderServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+    <security-constraint>
+
+<web-resource-collection>
+<web-resource-name>Restricted Area</web-resource-name>
+<url-pattern>/private/*</url-pattern>
+</web-resource-collection>
+
+<auth-constraint>
+<role-name>Polkovnik</role-name>
+</auth-constraint>
+
+</security-constraint>
+
+
+
+
+<login-config>
+<auth-method>FORM</auth-method>
+<form-login-config>
+
+<form-login-page>/login.jsp</form-login-page>
+<form-error-page>/error.jsp</form-error-page>
+</form-login-config>
+</login-config>
+
+<security-role>
+<role-name>indexadmin</role-name>
+</security-role>
+  
+    
+  
+  
+</web-app>
